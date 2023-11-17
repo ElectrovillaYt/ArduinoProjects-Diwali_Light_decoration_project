@@ -63,16 +63,6 @@ void setup() {
   delay(2000);
 }
 
-void loop() {
-  //all patterns running in loop
-  for (int i = 0; i < num_of_relays; i++) { flash(); }
-  for (int i = 0; i < num_of_relays; i++) { pattern1(); }
-  for (int i = 0; i < num_of_relays; i++) { rev_pattern1(); }
-  for (int i = 0; i < num_of_relays; i++) { pattern2(); }
-  for (int i = 0; i < num_of_relays; i++) { rev_pattern2(); }
-  delay(250);
-}
-
 //Flash
 void flash() {
   int flash_period = 500;
@@ -125,4 +115,14 @@ void rev_pattern2() {
     delay(period);
     digitalWrite(relay_out[i - 1], 0);
   }
+}
+
+void loop() {
+  //all patterns running in loop
+  for (int i = 0; i < num_of_relays; i++) { flash(); }
+  for (int i = 0; i < num_of_relays; i++) { pattern1(); }
+  for (int i = 0; i < num_of_relays; i++) { rev_pattern1(); }
+  for (int i = 0; i < num_of_relays; i++) { pattern2(); }
+  for (int i = 0; i < num_of_relays; i++) { rev_pattern2(); }
+  delay(250);
 }
